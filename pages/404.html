@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 | Mohammad Owais</title>
+<meta name="description" content="The page you're looking for may have been moved, deleted, or the URL may be incorrect. Return to the homepage or get in touch.">
+<meta name="robots" content="noindex, follow">
+
+<!-- Fonts (same as rest of site) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Stylesheets (existing design system — untouched) -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+<div class="progress-bar" id="progressBar"></div>
+<div class="mouse-glow" id="mouseGlow"></div>
+
+<!-- Header component (shared with rest of site) -->
+<div data-include="components/header.html"></div>
+
+<main id="main">
+
+  <!-- ============ 1 & 2. HERO + ACTION BUTTONS ============ -->
+  <section class="hero" id="top">
+    <div class="aurora">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="container">
+      <div class="section-head-center">
+        <span class="eyebrow">404 Error</span>
+        <h1 class="hero-title reveal">Oops! This Page Doesn't Exist</h1>
+        <p class="hero-desc section-sub-center reveal">The page you're looking for may have been moved, deleted, or the URL may be incorrect.</p>
+        <div class="hero-ctas cta-center reveal">
+          <a href="index.html" class="btn btn-primary btn-magnetic">Go To Homepage</a>
+          <a href="pages/contact.html" class="btn btn-outline btn-magnetic">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. HELPFUL LINKS ============ -->
+  <section class="alt" aria-labelledby="links-heading">
+    <div class="container">
+      <div class="section-head reveal section-head-center">
+        <span class="eyebrow">Find Your Way</span>
+        <h2 class="section-title" id="links-heading">Helpful <span class="grad-text">Links</span></h2>
+      </div>
+      <div class="why-grid">
+        <a href="index.html" class="glass why-card reveal">
+          <div class="why-icon">🏠</div>
+          <h3>Homepage</h3>
+          <p>Back to the start.</p>
+        </a>
+        <a href="pages/about.html" class="glass why-card reveal reveal-delay-1">
+          <div class="why-icon">👤</div>
+          <h3>About</h3>
+          <p>My story and experience.</p>
+        </a>
+        <a href="pages/services.html" class="glass why-card reveal reveal-delay-2">
+          <div class="why-icon">⚙</div>
+          <h3>Services</h3>
+          <p>What I can do for you.</p>
+        </a>
+        <a href="pages/contact.html" class="glass why-card reveal reveal-delay-3">
+          <div class="why-icon">✉</div>
+          <h3>Contact</h3>
+          <p>Get in touch directly.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. SMALL CTA ============ -->
+  <section aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="section-head reveal section-head-center">
+        <h2 class="section-title" id="cta-heading">Need Help Finding <span class="grad-text">Something?</span></h2>
+        <p class="section-sub section-sub-center">If you can't find what you're looking for, feel free to contact me and I'll be happy to help.</p>
+      </div>
+      <div class="hero-ctas cta-center reveal">
+        <a href="https://calendly.com/meetwithowais" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-magnetic">Book Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer component (shared with rest of site) -->
+<div data-include="components/footer.html"></div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<!-- Scripts (existing files — untouched) -->
+<script src="js/include.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
