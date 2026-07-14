@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO, AI & Digital Marketing Insights | Mohammad Owais</title>
+<meta name="description" content="Practical SEO strategies, AI marketing insights, Google Ads guides and website development tutorials to help businesses grow online.">
+<meta name="author" content="Mohammad Owais">
+<link rel="canonical" href="https://mohammadowais.com/blog/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="SEO, AI & Digital Marketing Insights | Mohammad Owais">
+<meta property="og:description" content="Practical SEO strategies, AI marketing insights, Google Ads guides and website development tutorials to help businesses grow online.">
+<meta property="og:url" content="https://mohammadowais.com/blog/">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SEO, AI & Digital Marketing Insights | Mohammad Owais">
+<meta name="twitter:description" content="Practical SEO strategies, AI marketing insights, Google Ads guides and website development tutorials to help businesses grow online.">
+
+<!-- Fonts (same as rest of site) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Stylesheets (existing design system — untouched) -->
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+<div class="progress-bar" id="progressBar"></div>
+<div class="mouse-glow" id="mouseGlow"></div>
+
+<!-- Header component (shared with rest of site) -->
+<div data-include="../components/header.html"></div>
+
+<main id="main">
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero" id="top">
+    <div class="aurora">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="container">
+      <div class="section-head-center">
+        <div class="hero-tags reveal">Blog</div>
+        <h1 class="hero-title reveal">SEO, AI & Digital Marketing Insights</h1>
+        <p class="hero-desc section-sub-center reveal">Learn practical SEO, AI Search Optimization, Google Ads and website growth strategies backed by real-world experience and measurable results.</p>
+        <div class="hero-ctas cta-center reveal">
+          <a href="https://calendly.com/meetwithowais" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-magnetic">Book Free Consultation</a>
+          <a href="contact.html" class="btn btn-outline btn-magnetic">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2 & 3. SEARCH BAR + CATEGORY FILTERS ============ -->
+  <section class="alt" aria-label="Search and filter articles">
+    <div class="container">
+      <form class="search-bar reveal" role="search" onsubmit="return false;">
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <label for="blog-search" class="skip-link">Search articles</label>
+        <input type="search" id="blog-search" name="q" placeholder="Search articles..." aria-label="Search articles" data-search-input>
+      </form>
+
+      <div class="tag-group cta-center reveal" role="group" aria-label="Filter articles by category">
+        <button type="button" class="tag tag-active" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="tag" data-filter="seo" aria-pressed="false">SEO</button>
+        <button type="button" class="tag" data-filter="technical-seo" aria-pressed="false">Technical SEO</button>
+        <button type="button" class="tag" data-filter="ai-seo" aria-pressed="false">AI SEO</button>
+        <button type="button" class="tag" data-filter="google-ads" aria-pressed="false">Google Ads</button>
+        <button type="button" class="tag" data-filter="website-development" aria-pressed="false">Website Development</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. BLOG GRID ============ -->
+  <section aria-label="Articles">
+    <div class="container">
+      <div class="case-grid" id="blogGrid">
+
+        <article class="glass case-card blog-card reveal" data-category="technical-seo">
+          <div class="case-thumb blog-thumb">
+            <img src="../assets/images/blog/technical-seo-checklist.webp" alt="Technical SEO Checklist for 2026" loading="lazy" width="1200" height="675">
+          </div>
+          <div class="case-body">
+            <span class="metric-chip">Technical SEO</span>
+            <h3 class="case-title">Technical SEO Checklist for 2026</h3>
+            <div class="case-block"><p>A practical, no-fluff checklist covering crawlability, indexation, structured data and Core Web Vitals — the fundamentals most audits still miss.</p></div>
+            <div class="blog-author">
+              <img src="../assets/images/profile.webp" alt="Mohammad Owais" width="40" height="40">
+              <span>Mohammad Owais</span>
+            </div>
+            <a href="#" class="case-cta">Read More →</a>
+          </div>
+        </article>
+
+        <article class="glass case-card blog-card reveal reveal-delay-1" data-category="ai-seo">
+          <div class="case-thumb blog-thumb">
+            <img src="../assets/images/blog/ai-seo-geo-explained.webp" alt="What Is AI SEO (GEO)?" loading="lazy" width="1200" height="675">
+          </div>
+          <div class="case-body">
+            <span class="metric-chip">AI SEO</span>
+            <h3 class="case-title">What Is AI SEO (GEO)?</h3>
+            <div class="case-block"><p>A plain-English breakdown of Generative Engine Optimization — what it actually changes about how content gets found and cited by AI systems.</p></div>
+            <div class="blog-author">
+              <img src="../assets/images/profile.webp" alt="Mohammad Owais" width="40" height="40">
+              <span>Mohammad Owais</span>
+            </div>
+            <a href="#" class="case-cta">Read More →</a>
+          </div>
+        </article>
+
+        <article class="glass case-card blog-card reveal reveal-delay-2" data-category="google-ads">
+          <div class="case-thumb blog-thumb">
+            <img src="../assets/images/blog/google-ads-vs-seo.webp" alt="Google Ads vs SEO" loading="lazy" width="1200" height="675">
+          </div>
+          <div class="case-body">
+            <span class="metric-chip">Google Ads</span>
+            <h3 class="case-title">Google Ads vs SEO</h3>
+            <div class="case-block"><p>Neither channel replaces the other. Here's how I decide the right mix for a business based on budget, timeline and competition.</p></div>
+            <div class="blog-author">
+              <img src="../assets/images/profile.webp" alt="Mohammad Owais" width="40" height="40">
+              <span>Mohammad Owais</span>
+            </div>
+            <a href="#" class="case-cta">Read More →</a>
+          </div>
+        </article>
+
+        <article class="glass case-card blog-card reveal" data-category="seo">
+          <div class="case-thumb blog-thumb">
+            <img src="../assets/images/blog/semantic-seo-explained.webp" alt="Semantic SEO Explained" loading="lazy" width="1200" height="675">
+          </div>
+          <div class="case-body">
+            <span class="metric-chip">SEO</span>
+            <h3 class="case-title">Semantic SEO Explained</h3>
+            <div class="case-block"><p>Why ranking is shifting from exact-match keywords to meaning and entities — and how to structure content around topics instead of phrases.</p></div>
+            <div class="blog-author">
+              <img src="../assets/images/profile.webp" alt="Mohammad Owais" width="40" height="40">
+              <span>Mohammad Owais</span>
+            </div>
+            <a href="#" class="case-cta">Read More →</a>
+          </div>
+        </article>
+
+        <article class="glass case-card blog-card reveal reveal-delay-1" data-category="website-development">
+          <div class="case-thumb blog-thumb">
+            <img src="../assets/images/blog/wordpress-seo-best-practices.webp" alt="WordPress SEO Best Practices" loading="lazy" width="1200" height="675">
+          </div>
+          <div class="case-body">
+            <span class="metric-chip">Website Development</span>
+            <h3 class="case-title">WordPress SEO Best Practices</h3>
+            <div class="case-block"><p>The plugin settings, permalink structure and theme choices that actually affect rankings — and the ones that don't matter as much as people think.</p></div>
+            <div class="blog-author">
+              <img src="../assets/images/profile.webp" alt="Mohammad Owais" width="40" height="40">
+              <span>Mohammad Owais</span>
+            </div>
+            <a href="#" class="case-cta">Read More →</a>
+          </div>
+        </article>
+
+        <article class="glass case-card blog-card reveal reveal-delay-2" data-category="seo">
+          <div class="case-thumb blog-thumb">
+            <img src="../assets/images/blog/local-seo-ranking-factors.webp" alt="Local SEO Ranking Factors" loading="lazy" width="1200" height="675">
+          </div>
+          <div class="case-body">
+            <span class="metric-chip">SEO</span>
+            <h3 class="case-title">Local SEO Ranking Factors</h3>
+            <div class="case-block"><p>Google Business Profile optimization, citations, reviews and proximity — the factors that actually move the local map pack.</p></div>
+            <div class="blog-author">
+              <img src="../assets/images/profile.webp" alt="Mohammad Owais" width="40" height="40">
+              <span>Mohammad Owais</span>
+            </div>
+            <a href="#" class="case-cta">Read More →</a>
+          </div>
+        </article>
+
+        <article class="glass case-card blog-card reveal reveal-delay-3" data-category="technical-seo">
+          <div class="case-thumb blog-thumb">
+            <img src="../assets/images/blog/core-web-vitals.webp" alt="How To Improve Core Web Vitals" loading="lazy" width="1200" height="675">
+          </div>
+          <div class="case-body">
+            <span class="metric-chip">Technical SEO</span>
+            <h3 class="case-title">How To Improve Core Web Vitals</h3>
+            <div class="case-block"><p>A prioritized approach to LCP, CLS and INP issues — what to fix first for the biggest ranking and user experience gains.</p></div>
+            <div class="blog-author">
+              <img src="../assets/images/profile.webp" alt="Mohammad Owais" width="40" height="40">
+              <span>Mohammad Owais</span>
+            </div>
+            <a href="#" class="case-cta">Read More →</a>
+          </div>
+        </article>
+
+        <article class="glass case-card blog-card reveal" data-category="seo">
+          <div class="case-thumb blog-thumb">
+            <img src="../assets/images/blog/topical-maps-explained.webp" alt="Topical Maps Explained" loading="lazy" width="1200" height="675">
+          </div>
+          <div class="case-body">
+            <span class="metric-chip">SEO</span>
+            <h3 class="case-title">Topical Maps Explained</h3>
+            <div class="case-block"><p>How to structure a website's content around topic clusters and pillar pages to build real topical authority over time.</p></div>
+            <div class="blog-author">
+              <img src="../assets/images/profile.webp" alt="Mohammad Owais" width="40" height="40">
+              <span>Mohammad Owais</span>
+            </div>
+            <a href="#" class="case-cta">Read More →</a>
+          </div>
+        </article>
+
+        <article class="glass case-card blog-card reveal reveal-delay-1" data-category="seo">
+          <div class="case-thumb blog-thumb">
+            <img src="../assets/images/blog/seo-mistakes-to-avoid.webp" alt="SEO Mistakes To Avoid" loading="lazy" width="1200" height="675">
+          </div>
+          <div class="case-body">
+            <span class="metric-chip">SEO</span>
+            <h3 class="case-title">SEO Mistakes To Avoid</h3>
+            <div class="case-block"><p>The recurring technical and content mistakes I still find in audits — and why most of them are easier to fix than businesses expect.</p></div>
+            <div class="blog-author">
+              <img src="../assets/images/profile.webp" alt="Mohammad Owais" width="40" height="40">
+              <span>Mohammad Owais</span>
+            </div>
+            <a href="#" class="case-cta">Read More →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+  <section class="alt" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="section-head reveal section-head-center">
+        <span class="eyebrow">Let's Work Together</span>
+        <h2 class="section-title" id="cta-heading">Ready To Grow <span class="grad-text">Your Business?</span></h2>
+        <p class="section-sub section-sub-center">Let's discuss your business goals and build a strategy that delivers measurable growth.</p>
+      </div>
+      <div class="hero-ctas cta-center reveal">
+        <a href="https://calendly.com/meetwithowais" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-magnetic">Book Free Consultation</a>
+        <a href="contact.html" class="btn btn-outline btn-magnetic">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer component (shared with rest of site) -->
+<div data-include="../components/footer.html"></div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<!-- Scripts (existing files — untouched) -->
+<script src="../js/include.js"></script>
+<script src="../js/main.js"></script>
+
+</body>
+</html>
