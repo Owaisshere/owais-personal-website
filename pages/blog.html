@@ -58,25 +58,34 @@
     </div>
   </section>
 
-  <!-- ============ 2 & 3. SEARCH BAR + CATEGORY FILTERS ============ -->
-  <section class="alt" aria-label="Search and filter articles">
-    <div class="container">
-      <form class="search-bar reveal" role="search" onsubmit="return false;">
-        <span class="search-icon" aria-hidden="true">🔍</span>
-        <label for="blog-search" class="skip-link">Search articles</label>
-        <input type="search" id="blog-search" name="q" placeholder="Search articles..." aria-label="Search articles" data-search-input>
-      </form>
+<!-- ============ SEARCH BAR ============ -->
+<section class="alt" aria-label="Search articles">
+  <div class="container">
 
-      <div class="tag-group cta-center reveal" role="group" aria-label="Filter articles by category">
-        <button type="button" class="tag tag-active" data-filter="all" aria-pressed="true">All</button>
-        <button type="button" class="tag" data-filter="seo" aria-pressed="false">SEO</button>
-        <button type="button" class="tag" data-filter="technical-seo" aria-pressed="false">Technical SEO</button>
-        <button type="button" class="tag" data-filter="ai-seo" aria-pressed="false">AI SEO</button>
-        <button type="button" class="tag" data-filter="google-ads" aria-pressed="false">Google Ads</button>
-        <button type="button" class="tag" data-filter="website-development" aria-pressed="false">Website Development</button>
+    <form class="blog-toolbar reveal" role="search" onsubmit="return false;">
+
+      <div class="blog-search">
+
+        <span class="search-icon" aria-hidden="true">🔍</span>
+
+        <label for="blog-search" class="skip-link">
+          Search articles
+        </label>
+
+        <input
+          type="search"
+          id="blog-search"
+          name="q"
+          placeholder="Search articles..."
+          aria-label="Search articles"
+          data-search-input>
+
       </div>
-    </div>
-  </section>
+
+    </form>
+
+  </div>
+</section>
 
   <!-- ============ 4. BLOG GRID ============ -->
   <section aria-label="Articles">
