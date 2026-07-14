@@ -1,21 +1,41 @@
-<!-- ==========================================================================
-     Header / Primary Navigation Component
-     Injected into index.html (and any future page) via js/include.js:
-       <div data-include="components/header.html"></div>
-     ========================================================================== -->
 <header class="nav" id="siteNav">
   <div class="nav-inner">
-    <a href="#top" class="logo">Mohammad<span> Owais</span></a>
+
+    <a href="/" class="logo">
+      Mohammad<span> Owais</span>
+    </a>
+
     <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
-      <a href="#">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#case-studies">Work</a>
-      <a href="#services">Services</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact" class="nav-cta btn-magnetic">Hire Me</a>
+
+      <a href="/">Home</a>
+
+      <a href="/pages/about.html">About</a>
+
+      <a href="/pages/services.html">Services</a>
+
+      <a href="/pages/portfolio.html">Portfolio</a>
+
+      <a href="/pages/blog.html">Blog</a>
+
+      <a href="/pages/contact.html">Contact</a>
+
+      <a href="https://calendly.com/meetwithowais"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="nav-cta btn-magnetic">
+         Schedule Meeting
+      </a>
+
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-      <span></span><span></span><span></span>
+
+    <button class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
+
   </div>
 </header>
