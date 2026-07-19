@@ -1,18 +1,74 @@
 <!-- ==========================================================================
-     Footer Component
-     Injected into index.html (and any future page) via js/include.js:
+     Footer Component — Premium 4-column layout
+     Injected into every page via js/include.js:
        <div data-include="components/footer.html"></div>
+     (Homepage and blog post pages inline this same markup directly for
+     performance — keep those two in sync if this file changes.)
      ========================================================================== -->
 <footer class="site-footer">
-    <div class="container footer-inner">
-        <p>
-            © <span id="year"></span> Mohammad Owais. All rights reserved.
-        </p>
+  <div class="container footer-grid">
 
-        <nav class="footer-nav">
-            <a href="/privacy-policy">Privacy Policy</a>
-            <span>•</span>
-            <a href="/terms-and-conditions">Terms & Conditions</a>
-        </nav>
+    <!-- Column 1: Brand -->
+    <div class="footer-col footer-brand">
+      <a href="/" class="footer-logo">Mohammad<span> Owais</span></a>
+      <p class="footer-tagline">Senior SEO Specialist helping businesses grow organic traffic, authority and revenue through Technical SEO, AI Search Optimization and Digital PR.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/seowithowais/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn">in</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Facebook">f</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram">IG</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="X (Twitter)">X</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="GitHub">GH</a>
+      </div>
     </div>
+
+    <!-- Column 2: Quick Links -->
+    <div class="footer-col">
+      <h3 class="footer-col-title">Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Services -->
+    <div class="footer-col">
+      <h3 class="footer-col-title">Services</h3>
+      <ul class="footer-links">
+        <li><a href="/services">SEO Services</a></li>
+        <li><a href="/services">Local SEO</a></li>
+        <li><a href="/services">Technical SEO</a></li>
+        <li><a href="/services">On-Page SEO</a></li>
+        <li><a href="/services">Off-Page SEO</a></li>
+        <li><a href="/services">Content Strategy</a></li>
+        <li><a href="/services">SEO Consulting</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Contact -->
+    <div class="footer-col">
+      <h3 class="footer-col-title">Contact</h3>
+      <ul class="footer-contact">
+        <li><span class="footer-contact-icon" aria-hidden="true">✉</span> <a href="mailto:owaisdoesseo@gmail.com">owaisdoesseo@gmail.com</a></li>
+        <li><span class="footer-contact-icon" aria-hidden="true">☎</span> <a href="tel:+923002125116">+92 300 2125116</a></li>
+        <li><span class="footer-contact-icon" aria-hidden="true">📍</span> Karachi, Pakistan</li>
+        <li><span class="footer-contact-icon" aria-hidden="true">🕒</span> Available for remote &amp; freelance work</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>© <span id="year"></span> Mohammad Owais. All Rights Reserved.</p>
+      <nav class="footer-legal" aria-label="Legal">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <span aria-hidden="true">•</span>
+        <a href="/terms-and-conditions">Terms &amp; Conditions</a>
+      </nav>
+    </div>
+  </div>
 </footer>

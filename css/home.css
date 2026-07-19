@@ -1,0 +1,190 @@
+/* ==========================================================================
+   home.css — Homepage-only premium refinements
+   Loaded ONLY on index.html. Everything below is scoped under body.home
+   so it never touches About / Services / Portfolio / Blog / Contact, which
+   still use the original .glass / .service-card / .why-card / etc rules
+   from style.css untouched. This keeps the rest of the site pixel-identical
+   until those pages are approved for the same treatment.
+   ========================================================================== */
+
+/* ---------- Reduced motion: always respected first ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Section rhythm & separators ---------- */
+body.home section.alt {
+  position: relative;
+}
+body.home section.alt::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  width: min(1240px, 88%);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--card-border) 20%, var(--card-border) 80%, transparent);
+}
+body.home .section-head { margin-bottom: 52px; }
+body.home .section-sub { line-height: 1.75; }
+
+/* ---------- Card refinement: warmer, more premium elevation ---------- */
+body.home .glass {
+  transition: transform 0.45s var(--ease), border-color 0.45s ease, box-shadow 0.45s var(--ease);
+}
+body.home .glass:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 44px rgba(217, 66, 8, 0.12), 0 4px 12px rgba(23,20,18,0.06);
+  border-color: #ffd9bd;
+}
+
+/* Grid breathing room */
+body.home .services-grid,
+body.home .why-grid,
+body.home .stats-grid,
+body.home .cert-grid,
+body.home .skills-grid { gap: 22px; }
+
+/* ---------- Buttons: subtler premium lift ---------- */
+body.home .btn { transition: transform 0.3s var(--ease), box-shadow 0.3s ease, border-color 0.3s ease; }
+body.home .btn-primary:hover { transform: translateY(-2px); }
+body.home .btn-outline:hover { transform: translateY(-2px); }
+
+/* ---------- Icon treatment: soft gradient ring on hover ---------- */
+body.home .service-icon,
+body.home .why-icon {
+  transition: transform 0.4s var(--ease), box-shadow 0.4s ease;
+}
+body.home .service-card:hover .service-icon {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 4px var(--orange-soft);
+}
+body.home .why-card:hover .why-icon {
+  transform: scale(1.08);
+}
+
+/* ---------- Hero polish ---------- */
+body.home .hero-desc { line-height: 1.8; }
+body.home .hero-tags {
+  display: inline-flex;
+  padding: 7px 16px;
+  border-radius: 100px;
+  background: var(--orange-soft);
+  border: 1px solid #ffd9bd;
+}
+body.home .hero-ctas .btn-primary { box-shadow: 0 10px 30px rgba(255,90,31,0.28); }
+body.home .badge {
+  transition: transform 0.35s var(--ease), box-shadow 0.35s ease;
+}
+body.home .badge:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+/* Aurora blobs: promote to their own compositor layer so the continuous
+   translate animation never triggers layout/paint on the main thread */
+body.home .blob { will-change: transform; }
+body.home .profile-ring,
+body.home .ring-glow { will-change: transform; }
+
+/* ---------- YouTube facade (click-to-load) ----------
+   Replaces the always-embedded iframe with a lightweight thumbnail.
+   Saves ~500KB+ of third-party JS/iframe weight until the visitor
+   actually chooses to press play. */
+.yt-facade {
+  cursor: pointer;
+  background: #0b0b0b;
+  position: relative;
+}
+.yt-facade .yt-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.yt-facade .yt-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px; height: 48px;
+  background: none;
+  border: none;
+  padding: 0;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.45));
+  transition: transform 0.3s var(--ease);
+}
+.yt-facade:hover .yt-play,
+.yt-facade:focus-visible .yt-play { transform: translate(-50%, -50%) scale(1.08); }
+.yt-facade:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+.yt-facade iframe { width: 100%; height: 100%; border: 0; }
+
+/* ---------- SEO Process — connected timeline ----------
+   Replaces the flat 2-row card grid with a single sequential rail.
+   Each step reveals in scroll order via the existing IntersectionObserver
+   (.reveal) — no new JS required. */
+.process-timeline { position: relative; max-width: 900px; margin: 0 auto; }
+.process-rail {
+  position: absolute;
+  left: 27px; top: 6px; bottom: 6px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--orange) 0%, #ffd166 50%, var(--orange-2) 100%);
+  opacity: 0.35;
+}
+.process-node { position: relative; display: flex; gap: 24px; padding-bottom: 28px; }
+.process-node:last-child { padding-bottom: 0; }
+.process-marker {
+  flex-shrink: 0;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--card-border);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 17px; color: var(--orange-dark);
+  box-shadow: var(--shadow-sm);
+  position: relative; z-index: 2;
+  transition: background 0.4s ease, border-color 0.4s ease, color 0.4s ease, transform 0.4s var(--ease);
+}
+.process-node.in-view .process-marker,
+.process-node:hover .process-marker {
+  background: var(--grad-1);
+  border-color: transparent;
+  color: #fff;
+  transform: scale(1.06);
+}
+.process-card {
+  flex: 1;
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.process-card-text h3 { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.process-card-text p { font-size: 14px; color: var(--muted); line-height: 1.6; max-width: 480px; }
+.process-stage {
+  flex-shrink: 0;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--orange-dark);
+  background: var(--orange-soft);
+  border: 1px solid #ffd9bd;
+  padding: 6px 12px; border-radius: 100px;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .process-rail { left: 21px; }
+  .process-node { gap: 16px; }
+  .process-marker { width: 44px; height: 44px; font-size: 15px; }
+  .process-card { padding: 18px 18px; flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------- Contact card: slightly more premium balance ---------- */
+body.home .contact-card-main { padding: 54px 56px; }
+body.home .contact-avatar { box-shadow: var(--shadow-md); }
+
+@media (max-width: 560px) {
+  body.home .contact-card-main { padding: 32px 22px; }
+}

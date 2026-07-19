@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WJMWH85K');</script>
+<!-- End Google Tag Manager -->
+
+<title>How To Improve Core Web Vitals: A Prioritized Framework (2026) | Mohammad Owais</title>
+<meta name="description" content="A prioritized, no-fluff framework for fixing LCP, INP and CLS — what to tackle first for the biggest ranking and user experience gains, from a working SEO specialist.">
+<meta name="author" content="Mohammad Owais">
+<link rel="canonical" href="https://www.owais.site/blog/how-to-improve-core-web-vitals/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="How To Improve Core Web Vitals: A Prioritized Framework (2026)">
+<meta property="og:description" content="A prioritized, no-fluff framework for fixing LCP, INP and CLS — what to tackle first for the biggest ranking and user experience gains.">
+<meta property="og:url" content="https://www.owais.site/blog/how-to-improve-core-web-vitals/">
+<meta property="og:image" content="https://www.owais.site/assets/images/blog/core-web-vitals-guide.png">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-07-10T09:00:00+05:00">
+<meta property="article:modified_time" content="2026-07-10T09:00:00+05:00">
+<meta property="article:author" content="Mohammad Owais">
+<meta property="article:section" content="Technical SEO">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How To Improve Core Web Vitals: A Prioritized Framework (2026)">
+<meta name="twitter:description" content="A prioritized, no-fluff framework for fixing LCP, INP and CLS — what to tackle first for the biggest ranking and user experience gains.">
+<meta name="twitter:image" content="https://www.owais.site/assets/images/blog/core-web-vitals-guide.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Preload the featured image: it sits directly under the H1 and is the
+     likely LCP element on this page. -->
+<link rel="preload" as="image" href="../../assets/images/blog/core-web-vitals-guide.png" fetchpriority="high">
+
+<!-- Critical CSS: header + post header, enough to paint above the fold
+     without waiting on the full stylesheet chain. -->
+<style>
+:root{--bg:#fff;--alt:#f7f6f3;--ink:#171412;--muted:#6b6863;--card-border:#ece9e4;--orange:#ff5a1f;--orange-2:#ff8a3d;--orange-dark:#d94208;--orange-soft:#fff1e6;--grad-1:linear-gradient(135deg,#ff8a3d 0%,#ff5a1f 100%);--shadow-sm:0 2px 14px rgba(23,20,18,.06);--shadow-lg:0 24px 60px rgba(23,20,18,.16);--ease:cubic-bezier(.16,1,.3,1);}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:-.011em;background:var(--bg);color:var(--ink);overflow-x:hidden;position:relative}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.skip-link{position:absolute;left:-999px;top:0;background:var(--orange);color:#fff;padding:12px 20px;z-index:9999;border-radius:0 0 8px 0;font-weight:600}
+.skip-link:focus{left:0}
+.progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--grad-1);z-index:10000;width:0%}
+.container{max-width:1240px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+.blog-container{max-width:1360px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in-view{opacity:1;transform:translateY(0)}
+header.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;background:rgba(20,18,16,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:19px;letter-spacing:-.02em;color:#fff}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{font-size:14.5px;font-weight:500;color:#c9c6c2}
+.nav-cta{background:var(--grad-1);color:#fff!important;padding:10px 22px;border-radius:100px;font-weight:600;font-size:14px}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.nav-toggle span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;border-radius:2px}
+.blog-post-hero{padding:140px 0 0;background:linear-gradient(180deg,var(--alt) 0%,var(--bg) 100%)}
+.breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin-bottom:22px}
+.post-meta-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;font-size:13.5px;color:var(--muted);margin-bottom:20px}
+.post-meta-row .post-category{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--orange-dark);background:var(--orange-soft);border:1px solid #ffd9bd;padding:6px 13px;border-radius:100px}
+.post-title{font-size:clamp(30px,4.4vw,48px);font-weight:900;letter-spacing:-.03em;line-height:1.12;color:var(--ink);max-width:920px;margin-bottom:28px}
+.post-featured-image{border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--card-border);aspect-ratio:16/9;background:var(--alt);margin-bottom:48px}
+.post-featured-image img{width:100%;height:100%;object-fit:cover}
+@media (max-width:980px){
+  .nav-links{position:fixed;top:60px;left:0;right:0;background:rgba(20,18,16,.98);flex-direction:column;align-items:flex-start;padding:22px;gap:18px;transform:translateY(-150%)}
+  .nav-links.open{transform:translateY(0)}
+  .nav-toggle{display:block}
+  .blog-post-hero{padding:112px 0 0}
+}
+@media (max-width:560px){
+  .container{padding:0 18px}
+  .post-title{margin-bottom:20px}
+  .post-featured-image{border-radius:18px;margin-bottom:28px}
+}
+</style>
+
+<!-- Non-blocking font + stylesheet loading (same pattern as the homepage) -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+
+<link rel="preload" as="style" href="../../css/style.css" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" as="style" href="../../css/responsive.css" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" as="style" href="../../css/blog-post.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../css/responsive.css">
+<link rel="stylesheet" href="../../css/blog-post.css">
+</noscript>
+
+<!-- Structured Data (SEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How To Improve Core Web Vitals: A Prioritized Framework (2026)",
+  "description": "A prioritized, no-fluff framework for fixing LCP, INP and CLS — what to tackle first for the biggest ranking and user experience gains.",
+  "image": "https://www.owais.site/assets/images/blog/core-web-vitals-guide.png",
+  "datePublished": "2026-07-10T09:00:00+05:00",
+  "dateModified": "2026-07-10T09:00:00+05:00",
+  "author": {"@type": "Person","name": "Mohammad Owais","url": "https://www.owais.site/about"},
+  "publisher": {"@type": "Organization","name": "Mohammad Owais SEO","logo": {"@type": "ImageObject","url": "https://www.owais.site/assets/images/profile.webp"}},
+  "mainEntityOfPage": {"@type": "WebPage","@id": "https://www.owais.site/blog/how-to-improve-core-web-vitals/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.owais.site/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://www.owais.site/blog/"},
+    {"@type":"ListItem","position":3,"name":"How To Improve Core Web Vitals","item":"https://www.owais.site/blog/how-to-improve-core-web-vitals/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What are the three Core Web Vitals?","acceptedAnswer":{"@type":"Answer","text":"Largest Contentful Paint (LCP), which measures loading speed; Interaction to Next Paint (INP), which measures responsiveness; and Cumulative Layout Shift (CLS), which measures visual stability."}},
+    {"@type":"Question","name":"What replaced First Input Delay (FID)?","acceptedAnswer":{"@type":"Answer","text":"Interaction to Next Paint (INP) officially replaced First Input Delay as a Core Web Vital in March 2024. INP measures the full duration of an interaction rather than just the initial delay."}},
+    {"@type":"Question","name":"What is a good LCP score?","acceptedAnswer":{"@type":"Answer","text":"An LCP under 2.5 seconds is considered good, 2.5 to 4 seconds needs improvement, and anything above 4 seconds is classified as poor by Google."}},
+    {"@type":"Question","name":"Do Core Web Vitals directly affect Google rankings?","acceptedAnswer":{"@type":"Answer","text":"Core Web Vitals are part of the page experience signals Google uses in ranking, but they act more as a tie-breaker among otherwise similar pages than as a dominant ranking factor on their own."}},
+    {"@type":"Question","name":"How often should Core Web Vitals be audited?","acceptedAnswer":{"@type":"Answer","text":"I recommend a full audit quarterly, with lightweight monitoring through Search Console's Core Web Vitals report on a monthly basis, and immediately after any major template, theme or plugin change."}}
+  ]
+}
+</script>
+</head>
+<body class="blog-post">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJMWH85K"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a href="#main" class="skip-link">Skip to main content</a>
+<div class="progress-bar" id="progressBar"></div>
+<div class="mouse-glow" id="mouseGlow"></div>
+
+<!-- Header — inlined directly, same as the homepage, so there is no
+     client-side fetch round trip before the nav bar exists in the DOM. -->
+<header class="nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="/" class="logo">Mohammad<span> Owais</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/services">Services</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/blog">Blog</a>
+      <a href="/contact">Contact</a>
+      <a href="https://calendly.com/meetwithowais" target="_blank" rel="noopener noreferrer" class="nav-cta btn-magnetic">Schedule Meeting</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ POST HEADER ============ -->
+  <section class="blog-post-hero">
+    <div class="container blog-container">
+      <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="/blog">Blog</a>
+        <span aria-hidden="true">/</span>
+        <span class="current" aria-current="page">How To Improve Core Web Vitals</span>
+      </nav>
+
+      <div class="post-meta-row reveal">
+        <span class="post-category">Technical SEO</span>
+        <span class="post-meta-item"><time datetime="2026-07-10">July 10, 2026</time></span>
+        <span class="post-meta-dot" aria-hidden="true"></span>
+        <span class="post-meta-item">By <strong>Mohammad Owais</strong></span>
+        <span class="post-meta-dot" aria-hidden="true"></span>
+        <span class="post-meta-item">9 min read</span>
+      </div>
+
+      <h1 class="post-title reveal">How To Improve Core Web Vitals: A Prioritized Framework For 2026</h1>
+
+      <figure class="post-featured-image reveal">
+        <img src="../../assets/images/blog/core-web-vitals-guide.png" alt="Dashboard showing Core Web Vitals metrics — LCP, INP and CLS — improving over time" width="1280" height="735" fetchpriority="high">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ THREE-COLUMN LAYOUT ============ -->
+  <div class="container blog-container">
+    <div class="blog-post-layout">
+
+      <!-- ============ LEFT SIDEBAR ============ -->
+      <aside class="blog-sidebar-left reveal" aria-label="Sidebar">
+
+        <div class="glass sidebar-card cta-sidebar-card">
+          <div class="cta-icon">⚡</div>
+          <h2>Get a Free SEO Audit</h2>
+          <p>I'll review your Core Web Vitals, technical SEO and content structure — no obligation, just a clear list of what to fix first.</p>
+          <a href="/contact" class="btn btn-magnetic">Request Free Audit</a>
+        </div>
+
+        <div class="glass sidebar-card">
+          <h2>Categories</h2>
+          <ul class="category-list">
+            <li><a href="/blog?category=technical-seo" class="active">Technical SEO <span class="category-count">2</span></a></li>
+            <li><a href="/blog?category=ai-seo">AI SEO <span class="category-count">1</span></a></li>
+            <li><a href="/blog?category=seo">SEO <span class="category-count">4</span></a></li>
+            <li><a href="/blog?category=google-ads">Google Ads <span class="category-count">1</span></a></li>
+            <li><a href="/blog?category=website-development">Website Development <span class="category-count">1</span></a></li>
+          </ul>
+        </div>
+
+        <div class="glass sidebar-card">
+          <h2>Related Posts</h2>
+          <div class="related-post-item">
+            <div class="related-thumb"><img src="../../assets/images/blog/technical-seo-checklist.webp" alt="Technical SEO Checklist for 2026" width="64" height="64" loading="lazy"></div>
+            <div class="related-post-text">
+              <a href="/blog">Technical SEO Checklist for 2026</a>
+              <span class="related-post-date">Jun 28, 2026</span>
+            </div>
+          </div>
+          <div class="related-post-item">
+            <div class="related-thumb"><img src="../../assets/images/blog/common-seo-mistakes.png" alt="SEO Mistakes To Avoid" width="64" height="64" loading="lazy"></div>
+            <div class="related-post-text">
+              <a href="/blog">SEO Mistakes To Avoid</a>
+              <span class="related-post-date">Jun 14, 2026</span>
+            </div>
+          </div>
+          <div class="related-post-item">
+            <div class="related-thumb"><img src="../../assets/images/blog/topical-maps-seo.png" alt="Topical Maps Explained" width="64" height="64" loading="lazy"></div>
+            <div class="related-post-text">
+              <a href="/blog">Topical Maps Explained</a>
+              <span class="related-post-date">May 30, 2026</span>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- ============ MAIN CONTENT ============ -->
+      <article class="blog-post-content reveal">
+
+        <!-- Mobile-only collapsible TOC -->
+        <details class="toc-mobile glass" id="tocMobile">
+          <summary>Table of Contents</summary>
+          <ul class="toc-list" id="tocListMobile"></ul>
+        </details>
+
+        <p>Core Web Vitals stopped being a "nice to have" the moment Google folded them into page experience signals — but most audits still treat all three metrics as equally urgent, which wastes time. In practice, fixing them in the wrong order means shipping changes that barely move the needle while the metric actually dragging down your score sits untouched. This is the framework I use on client sites: what each metric actually measures, the fixes that matter most, and the order to tackle them in.</p>
+
+        <h2>What Are Core Web Vitals (And Why The Thresholds Changed)</h2>
+        <p>Core Web Vitals are three specific, field-measurable metrics Google uses to judge real-world user experience: <strong>Largest Contentful Paint (LCP)</strong> for loading speed, <strong>Interaction to Next Paint (INP)</strong> for responsiveness, and <strong>Cumulative Layout Shift (CLS)</strong> for visual stability. In March 2024, INP officially replaced First Input Delay (FID) — a change that caught a lot of sites off guard, since INP measures the <em>full</em> duration of an interaction rather than just the delay before it starts.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Metric</th><th>Good</th><th>Needs Improvement</th><th>Poor</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>LCP (Loading)</td><td class="metric-good">≤ 2.5s</td><td class="metric-warn">2.5s – 4.0s</td><td class="metric-poor">&gt; 4.0s</td></tr>
+              <tr><td>INP (Responsiveness)</td><td class="metric-good">≤ 200ms</td><td class="metric-warn">200ms – 500ms</td><td class="metric-poor">&gt; 500ms</td></tr>
+              <tr><td>CLS (Visual Stability)</td><td class="metric-good">≤ 0.1</td><td class="metric-warn">0.1 – 0.25</td><td class="metric-poor">&gt; 0.25</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Largest Contentful Paint (LCP)</h2>
+        <p>LCP measures how long it takes the largest visible element — usually a hero image, a heading, or a background image — to render. It's almost always the metric I tackle first, because it tends to have the largest gap between "good" and where most sites actually sit, especially on mobile.</p>
+
+        <h3>Common Causes</h3>
+        <ul>
+          <li>Render-blocking CSS and JavaScript sitting in the critical path before first paint</li>
+          <li>Fonts loaded synchronously with no <code>font-display: swap</code></li>
+          <li>The LCP image not prioritized — no <code>fetchpriority="high"</code>, no preload</li>
+          <li>Slow server response time (TTFB) on shared or unoptimized hosting</li>
+          <li>Client-side rendered content that has to wait on JavaScript execution before anything appears</li>
+        </ul>
+
+        <h3>How I Fix It</h3>
+        <ol>
+          <li>Identify the actual LCP element in PageSpeed Insights or Chrome DevTools — don't guess.</li>
+          <li>Preload it directly with a priority hint so the browser fetches it immediately:</li>
+        </ol>
+
+        <pre><code>&lt;link rel="preload" as="image" href="/hero.webp" fetchpriority="high"&gt;</code></pre>
+
+        <ol start="3">
+          <li>Move non-critical CSS off the render path — inline only what's needed for the first paint, load the rest asynchronously.</li>
+          <li>Compress and correctly size images; serve modern formats like WebP or AVIF.</li>
+          <li>Reduce or defer third-party scripts that compete for bandwidth during the critical rendering path.</li>
+        </ol>
+
+        <blockquote>On mobile specifically, check what the LCP element actually is before optimizing images — I regularly find sites spending hours compressing a hero photo when the real LCP element was a headline blocked behind a slow font request.</blockquote>
+
+        <h2>Interaction to Next Paint (INP)</h2>
+        <p>INP replaced FID because FID only measured the delay before the browser could <em>start</em> processing an interaction — it said nothing about how long the resulting update took to actually paint. INP captures the whole picture, which is why sites with heavy JavaScript execution often saw their scores drop when the metric changed over.</p>
+
+        <h3>Common Causes</h3>
+        <ul>
+          <li>Long JavaScript tasks blocking the main thread during user interaction</li>
+          <li>Excessive DOM size, making style recalculation and layout expensive</li>
+          <li>Unoptimized event handlers firing on every scroll or resize</li>
+          <li>Heavy third-party scripts (chat widgets, ad tech, analytics) competing for the main thread</li>
+        </ul>
+        <p>The fix is almost always the same: break up long tasks, defer non-essential JavaScript, and audit third-party scripts ruthlessly — most sites are carrying at least one tracking pixel nobody remembers adding.</p>
+
+        <h2>Cumulative Layout Shift (CLS)</h2>
+        <p>CLS measures unexpected movement of visible content — the classic example is tapping a button just as an ad loads above it and the page jumps. It's usually the cheapest of the three metrics to fix, and the one I have the least patience for seeing unresolved in an audit.</p>
+
+        <figure class="in-content-image">
+          <img src="../../assets/images/blog/technical-seo-checklist.webp" alt="Checklist showing common technical SEO and layout stability fixes" width="768" height="512" loading="lazy" decoding="async">
+          <figcaption>Reserving space for images, embeds and fonts before they load is the single highest-leverage CLS fix.</figcaption>
+        </figure>
+
+        <h3>Common Causes &amp; Fixes</h3>
+        <ul>
+          <li><strong>Images without dimensions</strong> — always set explicit <code>width</code> and <code>height</code> (or <code>aspect-ratio</code> in CSS) so the browser reserves space before the image loads.</li>
+          <li><strong>Web fonts causing text reflow</strong> — use <code>font-display: swap</code> with a fallback stack that closely matches the metrics of your web font.</li>
+          <li><strong>Ads and embeds injected without reserved space</strong> — set a fixed-height container ahead of time.</li>
+          <li><strong>Content injected above existing content</strong> — avoid inserting banners or notices above the fold after the page has already rendered.</li>
+        </ul>
+
+        <div class="inline-cta">
+          <div>
+            <h3>Not sure which of these applies to your site?</h3>
+            <p>I run a full Core Web Vitals + technical SEO audit and hand you a prioritized fix list — free, no strings attached.</p>
+          </div>
+          <a href="/contact" class="btn btn-primary btn-magnetic">Get My Free Audit</a>
+        </div>
+
+        <h2>A Prioritized Audit Framework</h2>
+        <p>Here's the actual sequence I follow on client sites, whether it's a WordPress site or a custom build. It's the same approach behind the <a href="/services">technical SEO work</a> I do for clients across real estate, legal and ecommerce.</p>
+        <ol>
+          <li>Pull field data from Search Console's Core Web Vitals report — this reflects real visitors, not a lab simulation.</li>
+          <li>Run <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a> on your 3–5 highest-traffic templates (homepage, a category page, a product/post page) — not just the homepage.</li>
+          <li>Fix LCP first — it usually has the biggest score gap and the clearest, most mechanical fixes.</li>
+          <li>Move to CLS — cheap, fast wins that also improve perceived quality.</li>
+          <li>Finish with INP — this one takes longer since it often means auditing and trimming JavaScript, so budget more time.</li>
+          <li>Re-test with real field data after each round of fixes ships — lab scores can mislead you into thinking you're done.</li>
+        </ol>
+        <p>For the full technical background on how these metrics are measured, <a href="https://web.dev/articles/vitals" target="_blank" rel="noopener noreferrer">web.dev's Core Web Vitals guide</a> is the most reliable primary source — I'd rather point you there than paraphrase Google's own documentation.</p>
+
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        <div class="post-faq">
+          <div class="glass faq-item">
+            <div class="faq-q">What are the three Core Web Vitals?<span class="faq-icon">+</span></div>
+            <div class="faq-a">Largest Contentful Paint (LCP), which measures loading speed; Interaction to Next Paint (INP), which measures responsiveness; and Cumulative Layout Shift (CLS), which measures visual stability.</div>
+          </div>
+          <div class="glass faq-item">
+            <div class="faq-q">What replaced First Input Delay (FID)?<span class="faq-icon">+</span></div>
+            <div class="faq-a">Interaction to Next Paint (INP) officially replaced First Input Delay as a Core Web Vital in March 2024. INP measures the full duration of an interaction rather than just the initial delay.</div>
+          </div>
+          <div class="glass faq-item">
+            <div class="faq-q">What is a good LCP score?<span class="faq-icon">+</span></div>
+            <div class="faq-a">An LCP under 2.5 seconds is considered good, 2.5 to 4 seconds needs improvement, and anything above 4 seconds is classified as poor by Google.</div>
+          </div>
+          <div class="glass faq-item">
+            <div class="faq-q">Do Core Web Vitals directly affect Google rankings?<span class="faq-icon">+</span></div>
+            <div class="faq-a">Core Web Vitals are part of the page experience signals Google uses in ranking, but they act more as a tie-breaker among otherwise similar pages than as a dominant ranking factor on their own.</div>
+          </div>
+          <div class="glass faq-item">
+            <div class="faq-q">How often should Core Web Vitals be audited?<span class="faq-icon">+</span></div>
+            <div class="faq-a">I recommend a full audit quarterly, with lightweight monitoring through Search Console's Core Web Vitals report on a monthly basis, and immediately after any major template, theme or plugin change.</div>
+          </div>
+        </div>
+
+        <div class="post-tags">
+          <span class="post-tag">Core Web Vitals</span>
+          <span class="post-tag">LCP</span>
+          <span class="post-tag">INP</span>
+          <span class="post-tag">CLS</span>
+          <span class="post-tag">Technical SEO</span>
+          <span class="post-tag">Page Speed</span>
+        </div>
+
+        <div class="glass author-box">
+          <img src="../../assets/images/profile.webp" alt="Mohammad Owais" width="64" height="64" loading="lazy">
+          <div>
+            <h3>Mohammad Owais</h3>
+            <p>Senior SEO Specialist with 8+ years of experience in Technical SEO, AI Search Optimization and Digital PR. <a href="/about">More about Mohammad →</a></p>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- ============ RIGHT SIDEBAR: TABLE OF CONTENTS ============ -->
+      <aside class="blog-sidebar-right" aria-label="Table of contents">
+        <nav class="glass sidebar-card toc-card" aria-label="Table of contents">
+          <h2>On This Page</h2>
+          <ul class="toc-list" id="tocListDesktop"></ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- Footer — inlined directly, same as the homepage -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Mohammad Owais. All rights reserved.</p>
+    <nav class="footer-nav">
+      <a href="/privacy-policy">Privacy Policy</a>
+      <span>•</span>
+      <a href="/terms-and-conditions">Terms &amp; Conditions</a>
+    </nav>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<!-- Scripts -->
+<script src="../../js/include.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/blog-post.js"></script>
+
+</body>
+</html>

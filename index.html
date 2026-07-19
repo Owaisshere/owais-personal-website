@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -8,8 +11,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WJMWH85K');</script>
 <!-- End Google Tag Manager -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mohammad Owais | Senior SEO Specialist — Technical SEO, AI Search & Digital PR</title>
 <meta name="description" content="Mohammad Owais is a Senior SEO Specialist with 8+ years of experience in Technical SEO, Semantic SEO, AI Search Optimization, Digital PR, and Content Strategy. Based in Karachi, Pakistan — building scalable SEO systems that drive measurable business growth.">
 <meta name="author" content="Mohammad Owais">
@@ -31,11 +32,98 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<!-- Stylesheets -->
+<!-- Preload the hero portrait: on mobile it is flipped above the text
+     (see .hero-visual{order:-1} in responsive.css) and is the most likely
+     LCP element, so it must start downloading immediately. -->
+<link rel="preload" as="image" href="assets/images/profile.webp" fetchpriority="high">
+
+<!-- Critical CSS: everything needed to paint the header + hero without
+     waiting on the full stylesheet round trip. The full stylesheets are
+     loaded asynchronously below and will seamlessly take over. -->
+<style>
+:root{--bg:#fff;--alt:#f7f6f3;--ink:#171412;--muted:#6b6863;--card-border:#ece9e4;--orange:#ff5a1f;--orange-2:#ff8a3d;--orange-dark:#d94208;--orange-soft:#fff1e6;--grad-1:linear-gradient(135deg,#ff8a3d 0%,#ff5a1f 100%);--shadow-sm:0 2px 14px rgba(23,20,18,.06);--shadow-lg:0 24px 60px rgba(23,20,18,.16);--ease:cubic-bezier(.16,1,.3,1);}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:-.011em;background:var(--bg);color:var(--ink);overflow-x:hidden;position:relative}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.skip-link{position:absolute;left:-999px;top:0;background:var(--orange);color:#fff;padding:12px 20px;z-index:9999;border-radius:0 0 8px 0;font-weight:600}
+.skip-link:focus{left:0}
+.progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--grad-1);z-index:10000;width:0%}
+.container{max-width:1240px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in-view{opacity:1;transform:translateY(0)}
+.reveal-delay-1.in-view{transition-delay:.08s}
+.reveal-delay-2.in-view{transition-delay:.16s}
+.reveal-delay-3.in-view{transition-delay:.24s}
+header.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;background:rgba(20,18,16,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06);transition:padding .3s ease,box-shadow .3s ease}
+header.nav.scrolled{padding:11px 0;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:19px;letter-spacing:-.02em;color:#fff}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{font-size:14.5px;font-weight:500;color:#c9c6c2}
+.nav-cta{background:var(--grad-1);color:#fff!important;padding:10px 22px;border-radius:100px;font-weight:600;font-size:14px}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.nav-toggle span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;border-radius:2px}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:100px;font-weight:600;font-size:15px;border:1px solid transparent}
+.btn-primary{background:var(--grad-1);color:#fff;box-shadow:0 8px 26px rgba(255,90,31,.32)}
+.btn-outline{background:#fff;border-color:var(--card-border);color:var(--ink)}
+section{padding:88px 0;position:relative;background:var(--bg)}
+.hero{padding:150px 0 70px;overflow:hidden;background:linear-gradient(180deg,var(--alt) 0%,var(--bg) 100%)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;position:relative;z-index:2}
+.hero-tags{font-size:14.5px;color:var(--orange-dark);font-weight:600;margin-bottom:22px}
+h1.hero-title{font-size:clamp(40px,5.8vw,68px);font-weight:900;line-height:1.04;letter-spacing:-.035em;margin-bottom:12px;color:var(--ink)}
+.hero-subtitle{font-size:clamp(19px,2.2vw,25px);font-weight:600;margin-bottom:22px;background:var(--grad-1);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+.hero-desc{font-size:17px;line-height:1.8;color:var(--muted);max-width:560px;margin-bottom:32px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px}
+.hero-social{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.social-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:100px;background:#fff;border:1px solid var(--card-border);font-size:13.5px;font-weight:500;color:var(--muted)}
+.hero-badges{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.badge{padding:12px 18px;border-radius:16px;background:#fff;border:1px solid var(--card-border);box-shadow:var(--shadow-sm);text-align:center;min-width:100px}
+.badge-num{font-size:22px;font-weight:800;background:var(--grad-1);-webkit-background-clip:text;background-clip:text;color:transparent}
+.badge-label{font-size:11.5px;color:var(--muted);margin-top:2px;font-weight:500}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+.profile-ring{position:relative;width:320px;height:320px;border-radius:50%}
+.profile-inner{position:absolute;inset:12px;border-radius:50%;background:#fff;border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:var(--shadow-lg)}
+.profile-inner img{width:100%;height:100%;object-fit:cover}
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .hero-visual{order:-1}
+  .profile-ring{width:220px;height:220px}
+  .nav-links{position:fixed;top:60px;left:0;right:0;background:rgba(20,18,16,.98);flex-direction:column;align-items:flex-start;padding:22px;gap:18px;transform:translateY(-150%)}
+  .nav-links.open{transform:translateY(0)}
+  .nav-toggle{display:block}
+  .hero{padding:120px 0 50px}
+}
+@media (max-width:560px){
+  .container{padding:0 18px}
+  .hero{padding:104px 0 40px}
+  h1.hero-title{font-size:clamp(34px,10vw,44px)}
+  .hero-ctas{flex-direction:column;align-items:stretch;gap:12px}
+  .hero-ctas .btn{justify-content:center;width:100%}
+  .profile-ring{width:190px;height:190px}
+}
+</style>
+
+<!-- Non-blocking font load: browser paints with the system-font fallback
+     immediately, then swaps to Inter once it arrives (font-display:swap). -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+
+<!-- Non-blocking stylesheets: preloaded then swapped to rel="stylesheet"
+     once downloaded, so they never block first paint. Order is preserved
+     in the DOM so cascade order (style.css -> responsive.css -> home.css)
+     is unaffected by load timing. -->
+<link rel="preload" as="style" href="css/style.css" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" as="style" href="css/responsive.css" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" as="style" href="css/home.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/home.css">
+</noscript>
 
 <!-- Structured Data (SEO) -->
 <script type="application/ld+json">
@@ -89,7 +177,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
 </head>
-<body>
+<body class="home">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJMWH85K"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -99,8 +187,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="progress-bar" id="progressBar"></div>
 <div class="mouse-glow" id="mouseGlow"></div>
 
-<!-- Header / Navigation component (see components/header.html) -->
-<div data-include="components/header.html"></div>
+<!-- Header / Navigation — inlined directly (was previously fetched client-side
+     via data-include, which cost two extra sequential network round trips
+     and caused the nav to visibly pop in after load). include.js still runs
+     for forward-compatibility but finds nothing to fetch on this page, so it
+     dispatches "components:loaded" immediately and main.js wires up the nav
+     toggle / back-to-top exactly as before. -->
+<header class="nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="/" class="logo">Mohammad<span> Owais</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/services">Services</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/blog">Blog</a>
+      <a href="/contact">Contact</a>
+      <a href="https://calendly.com/meetwithowais" target="_blank" rel="noopener noreferrer" class="nav-cta btn-magnetic">Schedule Meeting</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
 <main id="main">
 
@@ -143,18 +252,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- Replace the YouTube URL below with your own introduction video link -->
+    <!-- Replace the YouTube video ID below with your own introduction video link.
+         Click-to-load facade: shows a static thumbnail and only downloads
+         YouTube's iframe/JS (typically 500KB+) once the visitor presses play,
+         instead of on every homepage visit. -->
     <div class="hero-video reveal">
       <p class="hero-video-label">Watch My Introduction</p>
-      <div class="video-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/xsVTqzratPs?start=85"
-          title="Mohammad Owais - Introduction Video"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          referrerpolicy="strict-origin-when-cross-origin">
-        </iframe>
+      <div class="video-wrap yt-facade" data-yt-id="xsVTqzratPs" data-yt-start="85" data-yt-title="Mohammad Owais - Introduction Video" role="button" tabindex="0" aria-label="Play introduction video">
+        <img class="yt-thumb" src="https://i.ytimg.com/vi/xsVTqzratPs/hqdefault.jpg" alt="Mohammad Owais introduction video thumbnail" width="480" height="360" loading="lazy" decoding="async">
+        <button class="yt-play" aria-hidden="true" tabindex="-1">
+          <svg viewBox="0 0 68 48" width="68" height="48" role="presentation"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff5a1f"/><path d="M45 24 27 14v20" fill="#fff"/></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -358,17 +466,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2 class="section-title" id="process-heading">My <span class="grad-text">SEO Process</span></h2>
         <p class="section-sub">A repeatable, data-backed system for sustainable SEO results.</p>
       </div>
-      <div class="process-row">
-        <div class="glass process-step reveal"><div class="process-num">1</div><h4>Discover</h4><p>Understand business goals and market landscape.</p></div>
-        <div class="glass process-step reveal reveal-delay-1"><div class="process-num">2</div><h4>Audit</h4><p>Deep technical and content health assessment.</p></div>
-        <div class="glass process-step reveal reveal-delay-2"><div class="process-num">3</div><h4>Research</h4><p>Keyword, competitor, and entity research.</p></div>
-        <div class="glass process-step reveal reveal-delay-3"><div class="process-num">4</div><h4>Strategy</h4><p>Prioritized roadmap tied to business impact.</p></div>
-      </div>
-      <div class="process-row process-row-2">
-        <div class="glass process-step reveal"><div class="process-num">5</div><h4>Implementation</h4><p>Execute technical, content, and PR initiatives.</p></div>
-        <div class="glass process-step reveal reveal-delay-1"><div class="process-num">6</div><h4>Optimization</h4><p>Continuous refinement based on performance data.</p></div>
-        <div class="glass process-step reveal reveal-delay-2"><div class="process-num">7</div><h4>Reporting</h4><p>Transparent dashboards and clear communication.</p></div>
-        <div class="glass process-step reveal reveal-delay-3"><div class="process-num">8</div><h4>Growth</h4><p>Compounding, sustainable organic growth.</p></div>
+      <div class="process-timeline">
+        <div class="process-rail" aria-hidden="true"></div>
+        <div class="process-node reveal">
+          <div class="process-marker">1</div>
+          <div class="glass process-card">
+            <div class="process-card-text"><h3>Discover</h3><p>Understand business goals and market landscape.</p></div>
+            <span class="process-stage">Foundation</span>
+          </div>
+        </div>
+        <div class="process-node reveal">
+          <div class="process-marker">2</div>
+          <div class="glass process-card">
+            <div class="process-card-text"><h3>Audit</h3><p>Deep technical and content health assessment.</p></div>
+            <span class="process-stage">Foundation</span>
+          </div>
+        </div>
+        <div class="process-node reveal">
+          <div class="process-marker">3</div>
+          <div class="glass process-card">
+            <div class="process-card-text"><h3>Research</h3><p>Keyword, competitor, and entity research.</p></div>
+            <span class="process-stage">Foundation</span>
+          </div>
+        </div>
+        <div class="process-node reveal">
+          <div class="process-marker">4</div>
+          <div class="glass process-card">
+            <div class="process-card-text"><h3>Strategy</h3><p>Prioritized roadmap tied to business impact.</p></div>
+            <span class="process-stage">Planning</span>
+          </div>
+        </div>
+        <div class="process-node reveal">
+          <div class="process-marker">5</div>
+          <div class="glass process-card">
+            <div class="process-card-text"><h3>Implementation</h3><p>Execute technical, content, and PR initiatives.</p></div>
+            <span class="process-stage">Execution</span>
+          </div>
+        </div>
+        <div class="process-node reveal">
+          <div class="process-marker">6</div>
+          <div class="glass process-card">
+            <div class="process-card-text"><h3>Optimization</h3><p>Continuous refinement based on performance data.</p></div>
+            <span class="process-stage">Execution</span>
+          </div>
+        </div>
+        <div class="process-node reveal">
+          <div class="process-marker">7</div>
+          <div class="glass process-card">
+            <div class="process-card-text"><h3>Reporting</h3><p>Transparent dashboards and clear communication.</p></div>
+            <span class="process-stage">Growth</span>
+          </div>
+        </div>
+        <div class="process-node reveal">
+          <div class="process-marker">8</div>
+          <div class="glass process-card">
+            <div class="process-card-text"><h3>Growth</h3><p>Compounding, sustainable organic growth.</p></div>
+            <span class="process-stage">Growth</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -518,8 +673,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </main>
 
-<!-- Footer component (see components/footer.html) -->
-<div data-include="components/footer.html"></div>
+<!-- Footer — inlined directly (see note above header) -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Mohammad Owais. All rights reserved.</p>
+    <nav class="footer-nav">
+      <a href="/privacy-policy">Privacy Policy</a>
+      <span>•</span>
+      <a href="/terms-and-conditions">Terms &amp; Conditions</a>
+    </nav>
+  </div>
+</footer>
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
