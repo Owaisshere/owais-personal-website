@@ -130,11 +130,11 @@ header.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;backg
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type":"Question","name":"What are the three Core Web Vitals?","acceptedAnswer":{"@type":"Answer","text":"Largest Contentful Paint (LCP), which measures loading speed; Interaction to Next Paint (INP), which measures responsiveness; and Cumulative Layout Shift (CLS), which measures visual stability."}},
-    {"@type":"Question","name":"What replaced First Input Delay (FID)?","acceptedAnswer":{"@type":"Answer","text":"Interaction to Next Paint (INP) officially replaced First Input Delay as a Core Web Vital in March 2024. INP measures the full duration of an interaction rather than just the initial delay."}},
-    {"@type":"Question","name":"What is a good LCP score?","acceptedAnswer":{"@type":"Answer","text":"An LCP under 2.5 seconds is considered good, 2.5 to 4 seconds needs improvement, and anything above 4 seconds is classified as poor by Google."}},
-    {"@type":"Question","name":"Do Core Web Vitals directly affect Google rankings?","acceptedAnswer":{"@type":"Answer","text":"Core Web Vitals are part of the page experience signals Google uses in ranking, but they act more as a tie-breaker among otherwise similar pages than as a dominant ranking factor on their own."}},
-    {"@type":"Question","name":"How often should Core Web Vitals be audited?","acceptedAnswer":{"@type":"Answer","text":"I recommend a full audit quarterly, with lightweight monitoring through Search Console's Core Web Vitals report on a monthly basis, and immediately after any major template, theme or plugin change."}}
+    {"@type":"Question","name":"Which Core Web Vital should I fix first?","acceptedAnswer":{"@type":"Answer","text":"Most websites should focus on Largest Contentful Paint (LCP) first because it typically has the biggest impact on user experience and overall performance scores."}},
+    {"@type":"Question","name":"Does Core Web Vitals affect SEO?","acceptedAnswer":{"@type":"Answer","text":"Core Web Vitals are part of Google's Page Experience signals. While content relevance remains more important, strong Core Web Vitals can provide a competitive advantage when pages offer similar value."}},
+    {"@type":"Question","name":"What replaced First Input Delay (FID)?","acceptedAnswer":{"@type":"Answer","text":"Interaction to Next Paint (INP) replaced First Input Delay and provides a more complete measurement of responsiveness."}},
+    {"@type":"Question","name":"How often should Core Web Vitals be audited?","acceptedAnswer":{"@type":"Answer","text":"A full audit should be performed quarterly and after major website updates, redesigns, migrations, or plugin changes."}},
+    {"@type":"Question","name":"Which tool is best for checking Core Web Vitals?","acceptedAnswer":{"@type":"Answer","text":"Google Search Console is the most reliable starting point because it uses real-user data rather than simulated performance tests."}}
   ]
 }
 </script>
@@ -260,79 +260,129 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <ul class="toc-list" id="tocListMobile"></ul>
         </details>
 
-        <p>Core Web Vitals stopped being a "nice to have" the moment Google folded them into page experience signals — but most audits still treat all three metrics as equally urgent, which wastes time. In practice, fixing them in the wrong order means shipping changes that barely move the needle while the metric actually dragging down your score sits untouched. This is the framework I use on client sites: what each metric actually measures, the fixes that matter most, and the order to tackle them in.</p>
+        <p>To improve Core Web Vitals, fix LCP first by optimizing images, reducing server response times, and removing render-blocking CSS and JavaScript. Next, improve CLS by setting image dimensions, reserving space for ads and embeds, and preventing layout shifts. Finally, optimize INP by reducing unnecessary JavaScript, breaking up long tasks, and minimizing third-party scripts. Prioritizing fixes in this order delivers the biggest performance improvements and helps websites pass Core Web Vitals faster.</p>
 
-        <h2>What Are Core Web Vitals (And Why The Thresholds Changed)</h2>
-        <p>Core Web Vitals are three specific, field-measurable metrics Google uses to judge real-world user experience: <strong>Largest Contentful Paint (LCP)</strong> for loading speed, <strong>Interaction to Next Paint (INP)</strong> for responsiveness, and <strong>Cumulative Layout Shift (CLS)</strong> for visual stability. In March 2024, INP officially replaced First Input Delay (FID) — a change that caught a lot of sites off guard, since INP measures the <em>full</em> duration of an interaction rather than just the delay before it starts.</p>
+        <p>Most Core Web Vitals issues are not caused by a single problem. They usually result from slow loading elements, layout instability, and excessive JavaScript competing for browser resources.</p>
 
+        <p>The most effective way to improve Core Web Vitals is to prioritize fixes based on impact. For most websites, that means improving Largest Contentful Paint (LCP) first, reducing Cumulative Layout Shift (CLS) second, and optimizing Interaction to Next Paint (INP) last.</p>
+
+        <h2>Core Web Vitals Improvement Priorities At A Glance</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Metric</th><th>What It Measures</th><th>Target Score</th><th>Common Issues</th><th>Priority</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>LCP</td><td>Loading Performance</td><td class="metric-good">≤ 2.5 Seconds</td><td>Slow hosting, large images, render-blocking resources, poor caching</td><td>Highest</td></tr>
+              <tr><td>CLS</td><td>Visual Stability</td><td class="metric-good">≤ 0.1</td><td>Images without dimensions, ads, embeds, font loading issues</td><td>Medium</td></tr>
+              <tr><td>INP</td><td>Responsiveness</td><td class="metric-good">≤ 200ms</td><td>Heavy JavaScript, long tasks, large DOM size, third-party scripts</td><td>High</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>This guide explains how Google measures Core Web Vitals in 2026, what commonly causes poor scores, and the framework that consistently delivers the fastest improvements across ecommerce, SaaS, local business, and content-driven websites.</p>
+
+        <h2>What Are Core Web Vitals?</h2>
+        <p>Core Web Vitals are a subset of Google's Page Experience signals and represent the metrics Google uses to measure loading speed, responsiveness, and visual stability based on real-user browsing data collected through the Chrome User Experience Report (CrUX).</p>
+        <p>Unlike traditional speed metrics that focus only on loading times, Core Web Vitals evaluate three specific areas of page experience:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Metric</th><th>Measures</th><th>Good Score</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Largest Contentful Paint (LCP)</td><td>Loading Performance</td><td class="metric-good">≤ 2.5 Seconds</td></tr>
+              <tr><td>Interaction to Next Paint (INP)</td><td>Responsiveness</td><td class="metric-good">≤ 200ms</td></tr>
+              <tr><td>Cumulative Layout Shift (CLS)</td><td>Visual Stability</td><td class="metric-good">≤ 0.1</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Google's Core Web Vitals Thresholds</h3>
         <div class="table-wrap">
           <table>
             <thead>
               <tr><th>Metric</th><th>Good</th><th>Needs Improvement</th><th>Poor</th></tr>
             </thead>
             <tbody>
-              <tr><td>LCP (Loading)</td><td class="metric-good">≤ 2.5s</td><td class="metric-warn">2.5s – 4.0s</td><td class="metric-poor">&gt; 4.0s</td></tr>
-              <tr><td>INP (Responsiveness)</td><td class="metric-good">≤ 200ms</td><td class="metric-warn">200ms – 500ms</td><td class="metric-poor">&gt; 500ms</td></tr>
-              <tr><td>CLS (Visual Stability)</td><td class="metric-good">≤ 0.1</td><td class="metric-warn">0.1 – 0.25</td><td class="metric-poor">&gt; 0.25</td></tr>
+              <tr><td>LCP</td><td class="metric-good">≤ 2.5s</td><td class="metric-warn">2.5s – 4s</td><td class="metric-poor">&gt; 4s</td></tr>
+              <tr><td>INP</td><td class="metric-good">≤ 200ms</td><td class="metric-warn">200ms – 500ms</td><td class="metric-poor">&gt; 500ms</td></tr>
+              <tr><td>CLS</td><td class="metric-good">≤ 0.1</td><td class="metric-warn">0.1 – 0.25</td><td class="metric-poor">&gt; 0.25</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h2>Largest Contentful Paint (LCP)</h2>
-        <p>LCP measures how long it takes the largest visible element — usually a hero image, a heading, or a background image — to render. It's almost always the metric I tackle first, because it tends to have the largest gap between "good" and where most sites actually sit, especially on mobile.</p>
+        <p>Google uses real-world data collected through the Chrome User Experience Report (CrUX) to assess these metrics, making field data significantly more important than isolated lab tests. A website passes Core Web Vitals when at least 75% of real users experience all three metrics within Google's recommended thresholds.</p>
 
-        <h3>Common Causes</h3>
+        <h3>Field Data vs Lab Data</h3>
+        <p>One of the most common misconceptions about Core Web Vitals is assuming that Lighthouse scores alone determine performance. Google primarily evaluates Core Web Vitals using field data collected from real users through the Chrome User Experience Report (CrUX). Tools such as Lighthouse and PageSpeed Insights also provide lab data, which helps diagnose performance issues but does not directly determine whether a page passes Core Web Vitals assessments.</p>
+
+        <h2>Why Core Web Vitals Still Matter In 2026</h2>
+        <p>Google has repeatedly stated that content relevance remains a stronger ranking factor than page experience. However, when multiple pages provide similar value, user experience signals often influence which page performs better.</p>
+        <p>More importantly, Core Web Vitals directly impact business performance: higher bounce rates, lower engagement, reduced conversions, poor mobile usability, lower lead generation, and increased abandonment rates.</p>
+        <p>A visitor may never know what Largest Contentful Paint or Interaction to Next Paint means, but they immediately notice when a website loads slowly, feels unresponsive, or shifts unexpectedly while they're trying to use it.</p>
+
+        <h2>The Core Web Vitals Prioritization Framework</h2>
+        <p>Many websites attempt to fix all Core Web Vitals simultaneously. In practice, the most effective optimization strategy follows this order: Largest Contentful Paint (LCP) first, Cumulative Layout Shift (CLS) second, and Interaction To Next Paint (INP) last. This framework focuses on resolving the highest-impact bottlenecks first before moving to smaller optimization opportunities.</p>
+
+        <h2>Priority #1: Improve Largest Contentful Paint (LCP)</h2>
+        <p>Largest Contentful Paint measures how long it takes for the largest visible element on a page to appear. In most cases, this element is a hero image, featured image, product image, banner section, or main heading. Because LCP affects the user's first impression of a page, it typically delivers the largest performance gains when optimized correctly.</p>
+
+        <h3>Common Causes Of Poor LCP Scores</h3>
+        <p>Slow server response times are a primary cause — before any content appears, the browser must receive data from the server. Common causes include shared hosting, poor caching configurations, slow databases, excessive plugins, and inefficient backend processing. Render-blocking CSS and JavaScript also frequently delay page rendering, especially when third-party scripts compete for resources. Unoptimized, oversized hero images remain one of the most common causes of slow LCP scores.</p>
+
+        <h3>How To Improve LCP</h3>
+        <p>Time To First Byte (TTFB), Content Delivery Networks (CDNs), HTTP/3 support, Critical CSS delivery, and Render-Blocking Resources all play a significant role in loading performance. Addressing these areas often produces larger improvements than isolated front-end optimizations.</p>
         <ul>
-          <li>Render-blocking CSS and JavaScript sitting in the critical path before first paint</li>
-          <li>Fonts loaded synchronously with no <code>font-display: swap</code></li>
-          <li>The LCP image not prioritized — no <code>fetchpriority="high"</code>, no preload</li>
-          <li>Slow server response time (TTFB) on shared or unoptimized hosting</li>
-          <li>Client-side rendered content that has to wait on JavaScript execution before anything appears</li>
+          <li>Optimize hosting infrastructure and implement page caching</li>
+          <li>Use a CDN and reduce TTFB</li>
+          <li>Preload critical resources and eliminate render-blocking resources</li>
+          <li>Deliver Critical CSS efficiently and enable HTTP/3 where possible</li>
+          <li>Compress images and use AVIF or WebP formats with responsive sizing</li>
+          <li>Apply Lazy Loading to below-the-fold assets</li>
+          <li>Remove unnecessary third-party scripts</li>
         </ul>
-
-        <h3>How I Fix It</h3>
-        <ol>
-          <li>Identify the actual LCP element in PageSpeed Insights or Chrome DevTools — don't guess.</li>
-          <li>Preload it directly with a priority hint so the browser fetches it immediately:</li>
-        </ol>
 
         <pre><code>&lt;link rel="preload" as="image" href="/hero.webp" fetchpriority="high"&gt;</code></pre>
 
-        <ol start="3">
-          <li>Move non-critical CSS off the render path — inline only what's needed for the first paint, load the rest asynchronously.</li>
-          <li>Compress and correctly size images; serve modern formats like WebP or AVIF.</li>
-          <li>Reduce or defer third-party scripts that compete for bandwidth during the critical rendering path.</li>
-        </ol>
-
         <blockquote>On mobile specifically, check what the LCP element actually is before optimizing images — I regularly find sites spending hours compressing a hero photo when the real LCP element was a headline blocked behind a slow font request.</blockquote>
 
-        <h2>Interaction to Next Paint (INP)</h2>
-        <p>INP replaced FID because FID only measured the delay before the browser could <em>start</em> processing an interaction — it said nothing about how long the resulting update took to actually paint. INP captures the whole picture, which is why sites with heavy JavaScript execution often saw their scores drop when the metric changed over.</p>
+        <h2>Priority #2: Improve Cumulative Layout Shift (CLS)</h2>
+        <p>Cumulative Layout Shift measures unexpected movement of page elements while content loads. Few issues frustrate users more than attempting to click a button only to have it move moments before interaction.</p>
 
-        <h3>Common Causes</h3>
+        <h3>Common Causes Of CLS</h3>
+        <p>Images without dimensions, advertisement containers, embedded videos and maps, third-party widgets, web font loading issues, and dynamic content injection are the most frequent culprits.</p>
+
+        <h3>How To Improve CLS</h3>
         <ul>
-          <li>Long JavaScript tasks blocking the main thread during user interaction</li>
-          <li>Excessive DOM size, making style recalculation and layout expensive</li>
-          <li>Unoptimized event handlers firing on every scroll or resize</li>
-          <li>Heavy third-party scripts (chat widgets, ad tech, analytics) competing for the main thread</li>
+          <li>Always define image <code>width</code> and <code>height</code> attributes</li>
+          <li>Reserve space for advertisements and embedded content</li>
+          <li>Use CSS <code>aspect-ratio</code> where appropriate</li>
+          <li>Optimize font loading with <code>font-display: swap</code></li>
+          <li>Avoid injecting content above existing elements</li>
         </ul>
-        <p>The fix is almost always the same: break up long tasks, defer non-essential JavaScript, and audit third-party scripts ruthlessly — most sites are carrying at least one tracking pixel nobody remembers adding.</p>
-
-        <h2>Cumulative Layout Shift (CLS)</h2>
-        <p>CLS measures unexpected movement of visible content — the classic example is tapping a button just as an ad loads above it and the page jumps. It's usually the cheapest of the three metrics to fix, and the one I have the least patience for seeing unresolved in an audit.</p>
+        <p>Many CLS issues can be identified quickly through Chrome DevTools and are often easier to fix than loading or responsiveness problems.</p>
 
         <figure class="in-content-image">
           <img src="../../assets/images/blog/technical-seo-checklist.webp" alt="Checklist showing common technical SEO and layout stability fixes" width="768" height="512" loading="lazy" decoding="async">
           <figcaption>Reserving space for images, embeds and fonts before they load is the single highest-leverage CLS fix.</figcaption>
         </figure>
 
-        <h3>Common Causes &amp; Fixes</h3>
+        <h2>Priority #3: Improve Interaction To Next Paint (INP)</h2>
+        <p>Interaction to Next Paint measures how quickly a page responds when users interact with it. Google replaced First Input Delay (FID) with INP because modern websites often struggle with responsiveness after an interaction begins, not just before it starts.</p>
+
+        <h3>Common Causes Of Poor INP Scores</h3>
+        <p>Long JavaScript tasks, large DOM structures, heavy event handlers, third-party scripts, client-side rendering delays, and excessive JavaScript execution are the primary causes.</p>
+
+        <h3>How To Improve INP</h3>
         <ul>
-          <li><strong>Images without dimensions</strong> — always set explicit <code>width</code> and <code>height</code> (or <code>aspect-ratio</code> in CSS) so the browser reserves space before the image loads.</li>
-          <li><strong>Web fonts causing text reflow</strong> — use <code>font-display: swap</code> with a fallback stack that closely matches the metrics of your web font.</li>
-          <li><strong>Ads and embeds injected without reserved space</strong> — set a fixed-height container ahead of time.</li>
-          <li><strong>Content injected above existing content</strong> — avoid inserting banners or notices above the fold after the page has already rendered.</li>
+          <li>Remove unused JavaScript and break up long tasks</li>
+          <li>Reduce DOM complexity and delay non-critical scripts</li>
+          <li>Optimize event handlers and reduce third-party dependencies</li>
+          <li>Improve main-thread availability</li>
         </ul>
+        <p>For many modern websites, especially those using JavaScript-heavy frameworks, INP optimization often requires deeper development work than LCP or CLS improvements.</p>
 
         <div class="inline-cta">
           <div>
@@ -342,39 +392,60 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="/contact" class="btn btn-primary btn-magnetic">Get My Free Audit</a>
         </div>
 
-        <h2>A Prioritized Audit Framework</h2>
-        <p>Here's the actual sequence I follow on client sites, whether it's a WordPress site or a custom build. It's the same approach behind the <a href="/services">technical SEO work</a> I do for clients across real estate, legal and ecommerce.</p>
+        <h2>Essential Tools For Core Web Vitals Optimization</h2>
+        <p><strong>Google Search Console</strong> provides real-user Core Web Vitals data and identifies affected page groups across your website. <strong>PageSpeed Insights</strong> combines Lighthouse diagnostics with Chrome UX Report data, making it useful for both troubleshooting and validation. <strong>Lighthouse</strong> helps identify render-blocking resources, unused JavaScript, image optimization opportunities, and performance bottlenecks. <strong>Chrome DevTools</strong> provides advanced debugging for layout shifts, rendering performance, JavaScript execution, and network activity. <strong>Chrome UX Report (CrUX)</strong> offers real-user performance data and serves as the primary source behind Google's Core Web Vitals reporting. <strong>WebPageTest</strong> is useful for advanced performance testing, waterfall analysis, and identifying rendering bottlenecks.</p>
+
+        <h2>Common Core Web Vitals Mistakes</h2>
+        <p>Many websites fail to improve Core Web Vitals because they focus on low-impact fixes while ignoring larger bottlenecks. Common mistakes include optimizing only desktop performance, ignoring mobile users, chasing Lighthouse scores instead of field data, testing only the homepage, installing multiple optimization plugins, compressing images without fixing server issues, overloading pages with third-party scripts, and ignoring template-level performance problems.</p>
+
+        <h2>A Practical Core Web Vitals Audit Process</h2>
+        <p>A structured audit process helps identify the changes that will have the greatest impact.</p>
         <ol>
-          <li>Pull field data from Search Console's Core Web Vitals report — this reflects real visitors, not a lab simulation.</li>
-          <li>Run <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a> on your 3–5 highest-traffic templates (homepage, a category page, a product/post page) — not just the homepage.</li>
-          <li>Fix LCP first — it usually has the biggest score gap and the clearest, most mechanical fixes.</li>
-          <li>Move to CLS — cheap, fast wins that also improve perceived quality.</li>
-          <li>Finish with INP — this one takes longer since it often means auditing and trimming JavaScript, so budget more time.</li>
-          <li>Re-test with real field data after each round of fixes ships — lab scores can mislead you into thinking you're done.</li>
+          <li>Review Core Web Vitals data in Google Search Console.</li>
+          <li>Identify affected page templates.</li>
+          <li>Determine whether LCP, CLS, or INP is causing the biggest issue.</li>
+          <li>Optimize Largest Contentful Paint first.</li>
+          <li>Resolve layout stability issues.</li>
+          <li>Improve responsiveness and JavaScript efficiency.</li>
+          <li>Monitor field data after deployment.</li>
+          <li>Validate improvements using <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a> and CrUX.</li>
         </ol>
-        <p>For the full technical background on how these metrics are measured, <a href="https://web.dev/articles/vitals" target="_blank" rel="noopener noreferrer">web.dev's Core Web Vitals guide</a> is the most reliable primary source — I'd rather point you there than paraphrase Google's own documentation.</p>
+
+        <h2>Core Web Vitals Trends For 2026</h2>
+        <p>While the fundamentals of Core Web Vitals remain consistent, several trends continue shaping website performance strategies in 2026. INP remains the primary responsiveness metric following the retirement of FID. AVIF adoption continues to increase due to superior image compression. Edge caching and CDN optimization play a larger role in global website performance. JavaScript efficiency remains one of the biggest challenges for modern websites. Field data continues to carry more weight than synthetic performance testing.</p>
+
+        <h2>Key Takeaways</h2>
+        <ul>
+          <li>LCP usually provides the biggest opportunity for improvement.</li>
+          <li>Server performance, image optimization, and render-blocking resources heavily influence loading speed.</li>
+          <li>CLS issues are commonly caused by images, ads, embeds, and font loading.</li>
+          <li>INP primarily depends on JavaScript efficiency and main-thread availability.</li>
+          <li>Google evaluates Core Web Vitals using real-user data — field performance matters more than Lighthouse scores alone.</li>
+          <li>A prioritized optimization strategy delivers faster and more meaningful improvements.</li>
+        </ul>
+        <p>As part of a broader <a href="/services">Technical SEO</a> and Website Performance Optimization strategy, Core Web Vitals should be monitored continuously rather than treated as a one-time project. Ongoing improvements to infrastructure, content delivery, and front-end performance help maintain strong Page Experience signals over time.</p>
 
         <h2 id="faq-heading">Frequently Asked Questions</h2>
         <div class="post-faq">
           <div class="glass faq-item">
-            <div class="faq-q">What are the three Core Web Vitals?<span class="faq-icon">+</span></div>
-            <div class="faq-a">Largest Contentful Paint (LCP), which measures loading speed; Interaction to Next Paint (INP), which measures responsiveness; and Cumulative Layout Shift (CLS), which measures visual stability.</div>
+            <div class="faq-q">Which Core Web Vital should I fix first?<span class="faq-icon">+</span></div>
+            <div class="faq-a">Most websites should focus on Largest Contentful Paint (LCP) first because it typically has the biggest impact on user experience and overall performance scores.</div>
+          </div>
+          <div class="glass faq-item">
+            <div class="faq-q">Does Core Web Vitals affect SEO?<span class="faq-icon">+</span></div>
+            <div class="faq-a">Core Web Vitals are part of Google's Page Experience signals. While content relevance remains more important, strong Core Web Vitals can provide a competitive advantage when pages offer similar value.</div>
           </div>
           <div class="glass faq-item">
             <div class="faq-q">What replaced First Input Delay (FID)?<span class="faq-icon">+</span></div>
-            <div class="faq-a">Interaction to Next Paint (INP) officially replaced First Input Delay as a Core Web Vital in March 2024. INP measures the full duration of an interaction rather than just the initial delay.</div>
-          </div>
-          <div class="glass faq-item">
-            <div class="faq-q">What is a good LCP score?<span class="faq-icon">+</span></div>
-            <div class="faq-a">An LCP under 2.5 seconds is considered good, 2.5 to 4 seconds needs improvement, and anything above 4 seconds is classified as poor by Google.</div>
-          </div>
-          <div class="glass faq-item">
-            <div class="faq-q">Do Core Web Vitals directly affect Google rankings?<span class="faq-icon">+</span></div>
-            <div class="faq-a">Core Web Vitals are part of the page experience signals Google uses in ranking, but they act more as a tie-breaker among otherwise similar pages than as a dominant ranking factor on their own.</div>
+            <div class="faq-a">Interaction to Next Paint (INP) replaced First Input Delay and provides a more complete measurement of responsiveness.</div>
           </div>
           <div class="glass faq-item">
             <div class="faq-q">How often should Core Web Vitals be audited?<span class="faq-icon">+</span></div>
-            <div class="faq-a">I recommend a full audit quarterly, with lightweight monitoring through Search Console's Core Web Vitals report on a monthly basis, and immediately after any major template, theme or plugin change.</div>
+            <div class="faq-a">A full audit should be performed quarterly and after major website updates, redesigns, migrations, or plugin changes.</div>
+          </div>
+          <div class="glass faq-item">
+            <div class="faq-q">Which tool is best for checking Core Web Vitals?<span class="faq-icon">+</span></div>
+            <div class="faq-a">Google Search Console is the most reliable starting point because it uses real-user data rather than simulated performance tests.</div>
           </div>
         </div>
 
@@ -412,13 +483,60 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- Footer — inlined directly, same as the homepage -->
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <p>© <span id="year"></span> Mohammad Owais. All rights reserved.</p>
-    <nav class="footer-nav">
-      <a href="/privacy-policy">Privacy Policy</a>
-      <span>•</span>
-      <a href="/terms-and-conditions">Terms &amp; Conditions</a>
-    </nav>
+  <div class="container footer-grid">
+    <div class="footer-col footer-brand">
+      <a href="/" class="footer-logo">Mohammad<span> Owais</span></a>
+      <p class="footer-tagline">Senior SEO Specialist helping businesses grow organic traffic, authority and revenue through Technical SEO, AI Search Optimization and Digital PR.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/seowithowais/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn">in</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Facebook">f</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram">IG</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="X (Twitter)">X</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="GitHub">GH</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3 class="footer-col-title">Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3 class="footer-col-title">Services</h3>
+      <ul class="footer-links">
+        <li><a href="/services">SEO Services</a></li>
+        <li><a href="/services">Local SEO</a></li>
+        <li><a href="/services">Technical SEO</a></li>
+        <li><a href="/services">On-Page SEO</a></li>
+        <li><a href="/services">Off-Page SEO</a></li>
+        <li><a href="/services">Content Strategy</a></li>
+        <li><a href="/services">SEO Consulting</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3 class="footer-col-title">Contact</h3>
+      <ul class="footer-contact">
+        <li><span class="footer-contact-icon" aria-hidden="true">✉</span> <a href="mailto:owaisdoesseo@gmail.com">owaisdoesseo@gmail.com</a></li>
+        <li><span class="footer-contact-icon" aria-hidden="true">☎</span> <a href="tel:+923002125116">+92 300 2125116</a></li>
+        <li><span class="footer-contact-icon" aria-hidden="true">📍</span> Karachi, Pakistan</li>
+        <li><span class="footer-contact-icon" aria-hidden="true">🕒</span> Available for remote &amp; freelance work</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>© <span id="year"></span> Mohammad Owais. All Rights Reserved.</p>
+      <nav class="footer-legal" aria-label="Legal">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <span aria-hidden="true">•</span>
+        <a href="/terms-and-conditions">Terms &amp; Conditions</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
