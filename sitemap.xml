@@ -58,4 +58,11 @@
     <priority>0.3</priority>
   </url>
 
+    <url>
+    <loc>https://www.owais.site/blog/how-to-improve-core-web-vitals</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
